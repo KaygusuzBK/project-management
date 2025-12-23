@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/theme-provider";
+import DashboardWrapper from "./dashboardWrapper";
 
 export default function RootLayout({
   children,
@@ -35,7 +36,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <DashboardWrapper>
+            {children}
+          </DashboardWrapper>
         </ThemeProvider>
       </body>
     </html>
