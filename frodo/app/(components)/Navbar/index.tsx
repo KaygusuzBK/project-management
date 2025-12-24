@@ -11,7 +11,6 @@ const Navbar = () => {
   const isSidebarOpen = useAppSelector((state => state.global.isSidebarOpen));
   return (
     <nav className="h-16 flex items-center justify-between gap-4 px-4 border-b border-border bg-card shadow-sm">
-      {isSidebarOpen && (
       <div className="flex items-center gap-3">
         <button
           type="button"
@@ -21,9 +20,10 @@ const Navbar = () => {
         >
           <BsLayoutTextSidebarReverse className="h-5 w-5 text-foreground" />
         </button>
+        {isSidebarOpen && (
           <div className="font-semibold text-lg text-foreground">Dashboard</div>
-        </div>
-      )}
+        )}
+      </div>
       <div className="flex items-center gap-4 flex-1 justify-end">
         <div className="w-full max-w-md">
           <input

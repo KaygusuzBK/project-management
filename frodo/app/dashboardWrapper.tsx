@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import Navbar from "./(components)/Navbar";
 import Sidebar from "./(components)/Sidebar";
-import StoreProvider, { RootState, useAppDispatch, useAppSelector } from "./redux";
+import StoreProvider, { useAppDispatch, useAppSelector } from "./redux";
 import { setIsSidebarOpen } from "@/state";
 
 
@@ -20,16 +20,21 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         }
     },[isDarkMode]);
 
+    
+
+    const handleSetSidebarOpen = (open: boolean) => {
+        dispatch(setIsSidebarOpen(open));
+    };
 
   return (
     <div className="flex h-screen w-full bg-background text-foreground">
       <Sidebar
         isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
+        setIsSidebarOpen={handleSetSidebarOpen}
       />
 
-      <main className={`flex-1 flex flex-col min-w-0 bg-background ${isSidebarOpen ? "ml-64" : "ml-0"}`}>
-        <Navbar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <main className={`flex-1 flex flex-col min-w-0 bg-background ${isSidebarOpen ? "md:ml-0" : ""}`}>
+        <Navbar />
         <section className="flex-1 overflow-auto p-6 bg-background">
           {children}
         </section>
@@ -46,4 +51,4 @@ const DashboardWrapper = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default DashboardLayout;
+export default DashboardWrapper;

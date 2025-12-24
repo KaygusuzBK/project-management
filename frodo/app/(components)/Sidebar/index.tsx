@@ -18,7 +18,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }: SidebarProps) => {
           isSidebarOpen ? "w-64" : "w-0 md:w-0"
         } bg-sidebar border-r border-sidebar-border shadow-sm md:shadow-none ${
           isSidebarOpen ? "p-4" : "p-0 md:p-0"
-        } transform transition-all duration-300 ease-in-out overflow-hidden`}
+        } transform transition-all duration-300 ease-in-out overflow-hidden flex-shrink-0`}
       >
         <div
           className={`font-bold text-xl mb-4 text-sidebar-foreground transition-opacity duration-300 ${
