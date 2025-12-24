@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
+import { useAppDispatch } from "@/app/redux"
+import { setIsDarkMode } from "@/state"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -13,7 +14,17 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function ModeToggle() {
-    const { setTheme } = useTheme()
+    const dispatch = useAppDispatch()
+
+    const handleThemeChange = (theme: "light" | "dark" | "system") => {
+        if (theme === "system") {
+            // Sistem temasını kontrol et
+            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+            dispatch(setIsDarkMode(systemPrefersDark))
+        } else {
+            dispatch(setIsDarkMode(theme === "dark"))
+        }
+    }
 
     return (
         <DropdownMenu>
@@ -25,13 +36,13 @@ export function ModeToggle() {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
+                <DropdownMenuItem onClick={() => handleThemeChange("light")}>
                     Light
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                <DropdownMenuItem onClick={() => handleThemeChange("dark")}>
                     Dark
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
+                <DropdownMenuItem onClick={() => handleThemeChange("system")}>
                     System
                 </DropdownMenuItem>
             </DropdownMenuContent>
