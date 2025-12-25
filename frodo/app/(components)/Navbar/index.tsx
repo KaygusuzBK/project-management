@@ -1,27 +1,12 @@
 "use client";
 
 import React from "react";
-import { Menu, Bell, HelpCircle, Search } from "lucide-react";
-import { useAppDispatch, useAppSelector } from "@/app/redux";
-import { setIsSidebarOpen } from "@/state";
+import { Bell, HelpCircle, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
-  const dispatch = useAppDispatch();
-  const isSidebarOpen = useAppSelector((state => state.global.isSidebarOpen));
   return (
     <nav className="h-16 flex items-center gap-4 px-6 border-b border-border bg-card shadow-sm">
-      {/* Sol taraf: Sidebar toggle */}
-      <div className="flex items-center shrink-0">
-        <button
-          type="button"
-          onClick={() => dispatch(setIsSidebarOpen(!isSidebarOpen))}
-          aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
-          className="relative flex h-8 w-8 items-center justify-center rounded-md border border-border bg-background hover:bg-muted transition-colors"
-        >
-          <Menu className="h-4 w-4 text-foreground" />
-        </button>
-      </div>
 
       {/* Orta: Searchbar */}
       <div className="flex-1 flex justify-center">
@@ -36,7 +21,7 @@ const Navbar = () => {
       </div>
 
       {/* Sağ taraf: Bildirimler, Yardım ve Profil */}
-      <div className="flex items-center gap-4 flex-shrink-0">
+      <div className="flex items-center gap-4 shrink-0">
         {/* Bildirimler */}
         <Button
           variant="ghost"
