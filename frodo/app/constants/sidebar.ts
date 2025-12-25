@@ -3,7 +3,7 @@ export const SIDEBAR_CONFIG = {
   // Minimum genişlik (pixel)
   MIN_WIDTH_PX: 90,
   // Minimum genişlik (yüzde)
-  MIN_SIZE_PERCENT: 9,
+  MIN_SIZE_PERCENT: 5,
   // Default genişlik (yüzde)
   DEFAULT_SIZE_PERCENT: 20,
   // Kompakt mod eşiği (pixel)
