@@ -1,9 +1,9 @@
 // Sidebar genişlik ayarları - Tek yerden kontrol
 export const SIDEBAR_CONFIG = {
   // Minimum genişlik (pixel)
-  MIN_WIDTH_PX: 90,
+  MIN_WIDTH_PX: 50,
   // Minimum genişlik (yüzde)
-  MIN_SIZE_PERCENT: 5,
+  MIN_SIZE_PERCENT: 3,
   // Default genişlik (yüzde)
   DEFAULT_SIZE_PERCENT: 20,
   // Kompakt mod eşiği (pixel)
