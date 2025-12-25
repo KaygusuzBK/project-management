@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Menu, Bell, HelpCircle } from "lucide-react";
+import { Menu, Bell, HelpCircle, Search } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarOpen } from "@/state";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className="h-16 flex items-center gap-4 px-6 border-b border-border bg-card shadow-sm">
       {/* Sol taraf: Sidebar toggle */}
-      <div className="flex items-center flex-shrink-0">
+      <div className="flex items-center shrink-0">
         <button
           type="button"
           onClick={() => dispatch(setIsSidebarOpen(!isSidebarOpen))}
@@ -25,8 +25,9 @@ const Navbar = () => {
 
       {/* Orta: Searchbar */}
       <div className="flex-1 flex justify-center">
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-lg">
           <input
+            
             type="text"
             placeholder="Search..."
             className="w-full rounded-md border border-border bg-background px-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-ring"
